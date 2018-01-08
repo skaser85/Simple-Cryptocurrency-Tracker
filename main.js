@@ -30,6 +30,10 @@ function calcCoins() {
     });
 
     coins.calcTotalWorth().then(() => {
+        let loadingDiv = document.querySelector("#loading");
+
+        loadingDiv.classList.remove("hidden");
+
         let coinsDiv = document.querySelector("#coins");
         let coinsTemplate = document.querySelector("#coin-template");
         let coinStatsDiv = document.querySelector("#coin-stats");
@@ -45,17 +49,22 @@ function calcCoins() {
         coinStatsDiv.classList.remove("hidden");
         coins.coins.forEach(coin => {
             let coinsTempClone = coinsTemplate.content.cloneNode(true);
+            let logo = coinsTempClone.querySelector(".logo");
             let title = coinsTempClone.querySelector(".coin-name");
             let price = coinsTempClone.querySelector(".price");
             let amt = coinsTempClone.querySelector(".amount");
             let worth = coinsTempClone.querySelector(".cworth");
+            
+            logo.style.backgroundImage = `url(${window.location}images/${coin.name}.png)`
             title.innerText = coin.name;
             price.innerText = parseFloat(coin.price_usd).toFixed(2);
             amt.innerText = coin.amt;
             worth.innerText = parseFloat(coin.price_usd * coin.amt).toFixed(2);
             coinsDiv.appendChild(coinsTempClone);
         })
+
+        loadingDiv.classList.add("hidden");
     });
 }
 
-// calcCoins();
+calcCoins();

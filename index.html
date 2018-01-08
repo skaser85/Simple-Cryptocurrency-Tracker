@@ -21,6 +21,7 @@
     </div>
 
     <div class="coins-container">
+        <div id="loading" class="hidden">Loading, mate...</div>
         <div id="coins"></div>
 
         <div id="coin-stats" class="hidden container">
@@ -46,7 +47,10 @@
 
     <template id="coin-template">
         <div class="container">
-            <h3 class="coin-name title"></h3>
+            <div class="coin-logo-title">
+                <span class="logo"></span>
+                <h3 class="coin-name title"></h3>
+            </div>
             <div class="coin-data">
                 <div class="coin-price">
                     <span class="sub-title">US Price: </span>
