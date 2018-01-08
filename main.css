@@ -1,0 +1,64 @@
+body {
+    font-family: "Raleway", sans-serif;
+    width: 95vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#get-data {
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#get-data input {
+    margin-bottom: 10px;
+}
+
+#get-data button {
+    margin-bottom: 10px;
+}
+
+.coins-container {
+    width: 75vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container {
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.title {
+    font-family: 'Sedgwick Ave Display', cursive;
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
+.sub-title {
+    display: inline-block;
+    font-family: 'Acme', sans-serif;
+    font-size: 20px;
+    width: 150px;
+    text-align: end;
+    padding-right: 10px;
+}
+
+.data-item {
+
+}
+
+.money:before {
+    content: "$";
+}
+
+.hidden {
+    display: none;
+}

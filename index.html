@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CryptoTracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Acme|Raleway:400,700,900|Sedgwick+Ave+Display" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+
+<body>
+    <div id="get-data">
+        <label for="coin-name-full">Coin Name</label>
+        <input type="text" name="coin-name-full" id="coin-name-full" placeholder="bitcoin">
+        <label for="amt-owned">Amount Owned</label>
+        <input type="text" name="amt-owned" id="amt-owned" placeholder=".003344545">
+        <button id="add-coin">Add Coin</button>
+        <button id="get-coin-data">Get Coin Data</button>
+    </div>
+
+    <div class="coins-container">
+        <div id="coins"></div>
+
+        <div id="coin-stats" class="hidden container">
+            <h3 class="title">Coin Stats</h3>
+            <div class="init-invest">
+                <span class="sub-title">Initial Investment: </span>
+                <span class="investment data-item money"></span>
+            </div>
+            <div class="total-worth">
+                <span class="sub-title">Total Worth: </span>
+                <span class="tworth data-item money"></span>
+            </div>
+            <div class="total-pl">
+                <span class="sub-title">Total P / L: </span>
+                <span class="tpl data-item money"></span>
+            </div>
+            <div class="pl-perc">
+                <span class="sub-title">P / L %: </span>
+                <span class="pl data-item"></span>
+            </div>
+        </div>
+    </div>
+
+    <template id="coin-template">
+        <div class="container">
+            <h3 class="coin-name title"></h3>
+            <div class="coin-data">
+                <div class="coin-price">
+                    <span class="sub-title">US Price: </span>
+                    <span class="price data-item money"></span>
+                </div>
+                <div class="coin-amount">
+                    <span class="sub-title">Amount Owned: </span>
+                    <span class="amount data-item"></span>
+                </div>
+                <div class="coin-worth">
+                    <span class="sub-title">Total Worth: </span>
+                    <span class="cworth data-item money"></span>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="coin.js"></script>
+    <script src="coins.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
