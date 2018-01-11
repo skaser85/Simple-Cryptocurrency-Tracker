@@ -1,7 +1,7 @@
 body {
     font-family: "Raleway", sans-serif;
     width: 95vw;
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,17 +23,31 @@ body {
     margin-bottom: 10px;
 }
 
+#coins {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 75vh;
+}
+
 .coins-container {
     width: 75vw;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
+
 }
 
 .container {
     border: 1px solid black;
     padding: 10px;
     margin-bottom: 10px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo {
@@ -44,14 +58,14 @@ body {
 
 .title {
     font-family: 'Sedgwick Ave Display', cursive;
-    font-size: 28px;
+    font-size: 20px;
     text-transform: uppercase;
-    padding-left: 10px;
 }
 
 .coin-logo-title {
+    width: 100%;
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -60,7 +74,7 @@ body {
     font-family: 'Acme', sans-serif;
     font-size: 20px;
     width: 150px;
-    text-align: end;
+    text-align: left;
     padding-right: 10px;
 }
 
@@ -74,4 +88,19 @@ body {
 
 .hidden {
     display: none;
+}
+
+#coin-stats {
+    width: 75vh;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#coin-stats div {
+    text-align: center;
+}
+
+#coin-stats div .sub-title {
+    text-align: center;
+    padding: 0;
 }

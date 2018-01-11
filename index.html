@@ -18,11 +18,11 @@
         <input type="text" name="amt-owned" id="amt-owned" placeholder=".003344545">
         <button id="add-coin">Add Coin</button>
         <button id="get-coin-data">Get Coin Data</button>
+        <button id="get-coin-data-all">Get All Coin Data</button>
     </div>
 
     <div class="coins-container">
         <div id="loading" class="hidden">Loading, mate...</div>
-        <div id="coins"></div>
 
         <div id="coin-stats" class="hidden container">
             <h3 class="title">Coin Stats</h3>
@@ -43,6 +43,7 @@
                 <span class="pl data-item"></span>
             </div>
         </div>
+        <div id="coins"></div>
     </div>
 
     <template id="coin-template">
