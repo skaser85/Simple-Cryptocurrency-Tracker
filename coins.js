@@ -41,11 +41,15 @@ class Coins {
     }
 
     async getAllCoins() {
+        let loadingDiv = document.querySelector("#loading");
+
+        // loadingDiv.classList.remove("hidden");
+
+        loading();
         await axios.get("https://api.coinmarketcap.com/v1/ticker/")
             .then((response) => {
                 let data = response.data;
                 data.forEach(c => {
-                    console.log(c.id);
                     let coinToAdd = new Coin({
                         id: c.id,
                         name: c.name,
@@ -78,6 +82,7 @@ class Coins {
                             coinToAdd.amt_owned = 0;
                     }
                 });
+                loadingDiv.remove();
             })
             .catch((error) => {
                 console.log(error);

@@ -11,18 +11,12 @@
 </head>
 
 <body>
-    <div id="get-data">
-        <label for="coin-name-full">Coin Name</label>
-        <input type="text" name="coin-name-full" id="coin-name-full" placeholder="bitcoin">
-        <label for="amt-owned">Amount Owned</label>
-        <input type="text" name="amt-owned" id="amt-owned" placeholder=".003344545">
-        <button id="add-coin">Add Coin</button>
-        <button id="get-coin-data">Get Coin Data</button>
-        <button id="get-coin-data-all">Get All Coin Data</button>
-    </div>
 
     <div class="coins-container">
-        <div id="loading" class="hidden">Loading, mate...</div>
+        <div id="loading" class="hidden">
+            <h1>Loading currency data . . . </h1>
+            <img src="">
+        </div>
 
         <div id="coin-stats" class="hidden container">
             <h3 class="title">Coin Stats</h3>
@@ -47,6 +41,9 @@
     </div>
 
     <template id="coin-template">
+        <span>Rank
+            <span class="rank-num"></span>
+        </span>
         <div class="container">
             <div class="coin-logo-title">
                 <span class="logo"></span>
@@ -68,6 +65,22 @@
             </div>
         </div>
     </template>
+
+    <template id="coin-info">
+        <div class="coin-logo-title">
+            <span class="logo"></span>
+            <h3 class="coin-name title"></h3>
+        </div>
+        <div class="coin-data"></div>
+    </template>
+
+    <template id="coin-data-div">
+        <div>
+            <span class="sub-title"></span>
+            <span></span>
+        </div>
+    </template>
+
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="coin.js"></script>

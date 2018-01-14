@@ -4,39 +4,26 @@ let coins = new Coins;
 
 coins.initialInvestment = 750;
 
+function loading() {
+    let loadingDiv = document.querySelector("#loading");
+    let loadImg = loadingDiv.querySelector("img");
+    let loadingCoins = ["bitcoin", "ethereum", "ripple", "bitcoin-cash", "cardano", "litecoin", "nem", "stellar", "iota", "eos", "neo", "dash", "tron", "monero", "bitcoin-gold", "ethereum-classic", "icon", "lisk", "omisego", "verge", "binance-coin", "zcash", "bytecoin-bcn", "siacoin", "ardor", "bitconnect", "populous", "stratis", "status", "bitshares", "kucoin-shares", "dogecoin"];
+    let c = 0;
+    loadingDiv.classList.remove("hidden");
+    loadImg.src = `${window.location}images/${"bitcoin"}.png`;
+    setInterval(() => {
+        loadImg.src = `${window.location}images/${loadingCoins[c]}.png`;
+        c === loadingCoins.length-1 ? c = 0 : c++;
+    }, 1000);
+}
+
+// loading();
+
 coins.getAllCoins().then(() => {
     loadCoinData();
 });
 
-// coins.addCoin(new Coin("bitcoin", 0.03849177));
-// coins.addCoin(new Coin("ethereum", 0.11889641));
-// coins.addCoin(new Coin("litecoin", 0.35089844));
-
-let getDataBtn = document.querySelector("#get-coin-data");
-let getAllDataBtn = document.querySelector("#get-coin-data-all");
-let addCoinBtn = document.querySelector("#add-coin");
-let coinName = document.querySelector("#coin-name-full");
-let coinAmt = document.querySelector("#amt-owned");
-
-addCoinBtn.addEventListener("click", (e) => {
-    coins.addCoin(new Coin(coinName.value, coinAmt.value));
-    calcCoins();
-});
-
-getDataBtn.addEventListener("click", (e) => {
-    calcCoins();
-});
-
-getAllDataBtn.addEventListener("click", (e) => {
-    // this needs to happen when the page loads and then keep the
-    // data in the Coin class for later use - can't make more than
-    // 10 requests a minute - update all at once
-});
-
 function loadCoinData() {
-    let loadingDiv = document.querySelector("#loading");
-
-    loadingDiv.classList.remove("hidden");
 
     let coinContainers = Array.from(document.querySelector("#coins").querySelectorAll(".container"));
 
@@ -45,7 +32,7 @@ function loadCoinData() {
     });
 
     coins.calcTotalWorth();
-    
+
 
     let coinsDiv = document.querySelector("#coins");
     let coinsTemplate = document.querySelector("#coin-template");
@@ -67,14 +54,17 @@ function loadCoinData() {
         let price = coinsTempClone.querySelector(".price");
         let amt = coinsTempClone.querySelector(".amount");
         let worth = coinsTempClone.querySelector(".cworth");
+        let rank = coinsTempClone.querySelector(".rank-num");
 
+        rank.innerText = coin.rank;
         logo.style.backgroundImage = `url(${window.location}images/${coin.id}.png)`
         title.innerText = coin.name;
         price.innerText = parseFloat(coin.price_usd).toFixed(2);
         amt.innerText = coin.amt_owned;
         worth.innerText = parseFloat(coin.price_usd * coin.amt_owned).toFixed(2);
+        if(coin.amt_owned > 0) {
+            coinsTempClone.querySelector(".container").classList.add("owned");
+        }
         coinsDiv.appendChild(coinsTempClone);
     })
-
-    loadingDiv.classList.add("hidden");
 }

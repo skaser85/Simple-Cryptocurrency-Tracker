@@ -48,6 +48,18 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: background 0.25s ease-in-out;
+    user-select: none;
+}
+
+.container:hover {
+    cursor: pointer;
+    background: rgba(182, 228, 224, 0.5);
+}
+
+.container:active {
+    background: rgba(0, 0, 0, 0.75);
+    transition: none;
 }
 
 .logo {
@@ -103,4 +115,27 @@ body {
 #coin-stats div .sub-title {
     text-align: center;
     padding: 0;
+}
+
+.rank-num {
+    display: block;
+    text-align:  center;
+}
+
+#loading {
+    font-family: 'Sedgwick Ave Display', cursive;
+    letter-spacing: .2ch;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+}
+
+#loading img {
+    width: 100px;
+    height: 100px;
+}
+
+.owned {
+    border: 3px solid #00ff00;
 }

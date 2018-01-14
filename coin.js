@@ -32,6 +32,10 @@ class Coin {
         return this._price_usd;
     }
 
+    get rank() {
+        return this._rank;
+    }
+
     set amt_owned(value) {
         this._amt_owned = value;
     }
